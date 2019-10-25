@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+@model aplicacionmvc.Models.Contact
+
+
+@using (Html.BeginForm())
+{
+
+    <div>
+        @Html.LabelFor(Model => Model.nombres)
+        @Html.EditorFor(Model => Model.nombres)
+
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.apellidos)
+        @Html.EditorFor(Model => Model.apellidos)
+
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.correo)
+        @Html.EditorFor(Model => Model.correo)
+
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.edad)
+        @Html.EditorFor(Model => Model.edad)
+
+    </div>
+    <div>
+        @Html.LabelFor(Model => Model.direccion)
+        @Html.EditorFor(Model => Model.direccion)
+    </div>
+
+    <input type="submit" value="Enviar" />
+}
+
