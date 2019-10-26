@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using aplicacionmvc.Models;
+using System.Net;
 
 namespace aplicacionmvc.Controllers
 {
@@ -29,6 +30,13 @@ namespace aplicacionmvc.Controllers
       
         public IActionResult RegisterContact()
         {
+            System.Net.HttpWebRequest request = WebRequest.Create("https://localhost:44380/api/values") as HttpWebRequest;
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded"; 
+
+            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+            System.IO.StreamReader reader = new System.IO.StreamReader(response.GetResponseStream());
+            string resp = reader.ReadToEnd();
 
             ViewData["Message"] = "Exitoso";
 
